@@ -1,6 +1,41 @@
-<resources>
-    <string name="app_name">ColusClient</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">ColusClient</string>
+  <string name="title_home">Home</string>
+  <string name="title_dashboard">Dashboard</string>
+  <string name="title_notifications">Notifications</string>
+  <string name="title_mouse">마우스</string>
+  <string name="title_keyboard">키보드</string>
+  <string name="title_ppt">PPT</string>
+  <string name="title_pcfunc">PC기능</string>
+  <!-- Options Menu -->
+  <string name="secure_connect">Connect a device - Secure</string>
+  <string name="insecure_connect">Connect a device - Insecure</string>
+  <string name="discoverable">Make discoverable</string>
+  <string name="is_discoverable">Currently discoverable</string>
+
+  <string name="not_connected">You are not connected to a device</string>
+  <string name="bt_not_available_leaving">Bluetooth is not available on this device. Leaving Bluetooth Chat.</string>
+  <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
+  <string name="title_connecting">Connecting...</string>
+  <string name="title_connected_to">
+    Connected to <xliff:g id="device_name">%1$s</xliff:g>
+  </string>
+  <string name="title_not_connected">Not Connected</string>
+
+  <!-- Permissions -->
+  <string name="request_location_permissions">Android relies on the location services to retrieve the identity of Bluetooth devices.</string>
+
+  <string name="ok">Ok</string>
+
+  <!--  DeviceListActivity -->
+  <string name="scanning">Scanning for devices...</string>
+  <string name="select_device">Select a device to connect</string>
+  <string name="none_paired">No devices have been paired</string>
+  <string name="none_found">No devices found</string>
+  <string name="title_paired_devices">Paired Devices</string>
+  <string name="title_other_devices">Other Available Devices</string>
+  <string name="button_scan">Scan for devices</string>
+
+  <string name="connect_code">연결코드 4자리</string>
+  
 </resources>
