@@ -14,6 +14,7 @@ namespace ColusClient
 {
     public class BChatFragment : Fragment
     {
+        private static bool isSeding = false;
         private BluetoothChatService chatService = null;
         public BChatFragment()
         {
@@ -40,11 +41,12 @@ namespace ColusClient
                 return;
             }
 
-            if (message.Length > 0)
+            if (message.Length > 0 && !isSeding)
             {
+                isSeding = true;
                 var bytes = Encoding.UTF8.GetBytes(message);
                 chatService.Write(bytes);
-                //outStringBuffer.Clear();
+                isSeding = false;
             }
         }
     }

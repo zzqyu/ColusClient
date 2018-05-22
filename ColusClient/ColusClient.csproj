@@ -65,6 +65,7 @@
     <Compile Include="ItemOneFragment.cs" />
     <Compile Include="ItemThreeFragment.cs" />
     <Compile Include="ItemTwoFragment.cs" />
+    <Compile Include="KeyMap.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PermissionUtils.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -395,6 +396,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\device_name.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\key_button.9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

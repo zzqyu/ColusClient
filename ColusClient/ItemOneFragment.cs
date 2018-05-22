@@ -10,10 +10,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using static Android.Views.View;
 
 namespace ColusClient
 {
-    public class ItemOneFragment : BChatFragment
+    public class ItemOneFragment : BChatFragment, IOnTouchListener
     {
         public ItemOneFragment()
         {
@@ -43,13 +44,20 @@ namespace ColusClient
         {
             return inflater.Inflate(Resource.Layout.fragment_item_one, container, false);
         }
+
+        
+
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             View tv = view.FindViewById<View>(Resource.Id.touchview);
             tv.Touch += tv_TouchAction;
+            tv.SetOnTouchListener(this);
             
         }
-
+        public bool OnTouch(View v, MotionEvent e)
+        {
+            throw new NotImplementedException();
+        }
         private void tv_TouchAction(object sender, View.TouchEventArgs e)
         {
             if (IsOnBluetooth())
