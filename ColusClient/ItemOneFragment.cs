@@ -14,7 +14,7 @@ using static Android.Views.View;
 
 namespace ColusClient
 {
-    public class ItemOneFragment : BChatFragment, IOnTouchListener
+    public class ItemOneFragment : BChatFragment
     {
         public ItemOneFragment()
         {
@@ -51,12 +51,7 @@ namespace ColusClient
         {
             View tv = view.FindViewById<View>(Resource.Id.touchview);
             tv.Touch += tv_TouchAction;
-            tv.SetOnTouchListener(this);
             
-        }
-        public bool OnTouch(View v, MotionEvent e)
-        {
-            throw new NotImplementedException();
         }
         private void tv_TouchAction(object sender, View.TouchEventArgs e)
         {

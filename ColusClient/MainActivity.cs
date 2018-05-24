@@ -36,23 +36,41 @@ namespace ColusClient
         WriteListener writeListener;
         public bool OnNavigationItemSelected(IMenuItem item)
         {
+            int tabIndex = -1;
+            if (item.ItemId == Resource.Id.navigation_mouse) tabIndex = (0);
+            else if (item.ItemId == Resource.Id.navigation_keyboard) tabIndex = (1);
+            else if (item.ItemId == Resource.Id.navigation_ppt) tabIndex = (2);
+            else if (item.ItemId == Resource.Id.navigation_pcfunc) tabIndex = (3);
+            if (tabIndex != -1)
+            {
+                SetFlagDisplay(tabIndex);
+                return true;
+            }
+            return false;
+        }
+        public void SetFlagDisplay(int tabIndex)
+        {
             Fragment fragment = null;
-            if (item.ItemId == Resource.Id.navigation_mouse)
-                fragment = ItemOneFragment.NewInstance(chatService);
-            else if (item.ItemId == Resource.Id.navigation_keyboard)
-                fragment = ItemTwoFragment.NewInstance(chatService);
-            else if (item.ItemId == Resource.Id.navigation_ppt)
-                fragment = ItemThreeFragment.NewInstance(chatService);
-            else if (item.ItemId == Resource.Id.navigation_pcfunc)
-                fragment = ItemFourFragment.NewInstance(chatService);
+            switch (tabIndex)
+            {
+                case 0:
+                    fragment = ItemOneFragment.NewInstance(chatService); break;
+                case 1:
+                    fragment = ItemTwoFragment.NewInstance(chatService); break;
+                case 2:
+                    fragment = ItemThreeFragment.NewInstance(chatService); break;
+                case 3:
+                    fragment = ItemFourFragment.NewInstance(chatService); break;
+
+            }
+            navigation.Menu.GetItem(tabIndex).SetChecked(true);
+            
             if (fragment != null)
             {
                 FragmentManager.BeginTransaction()
                 .Replace(Resource.Id.content_frame, fragment)
                 .Commit();
-                return true;
             }
-            return false;
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -60,8 +78,6 @@ namespace ColusClient
             SetContentView(Resource.Layout.activity_main);
             navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
-            FrameLayout contentFrame = (FrameLayout)FindViewById(Resource.Id.content_frame);
-            contentFrame.SetPadding(0, 0, 0, navigation.Height);
 
             if (savedInstanceState == null)
             {

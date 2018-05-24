@@ -52,13 +52,13 @@ namespace ColusClient
                         var readMessage = Encoding.UTF8.GetString(readBuffer);
                         Toast.MakeText(chatFrag, $"{chatFrag.connectedDeviceName}: {readMessage}", ToastLength.Short).Show();
                         if (readMessage.Contains( "마우스"))
-                            chatFrag.navigation.Menu.GetItem(0).SetChecked(true);
+                            chatFrag.SetFlagDisplay(0);
                         else if (readMessage.Contains("키보드"))
-                            chatFrag.navigation.Menu.GetItem(1).SetChecked(true);
+                            chatFrag.SetFlagDisplay(1);
                         else if (readMessage.Contains("PPT"))
-                            chatFrag.navigation.Menu.GetItem(2).SetChecked(true);
+                            chatFrag.SetFlagDisplay(2);
                         else if (readMessage.Contains("PC기능"))
-                            chatFrag.navigation.Menu.GetItem(3).SetChecked(true);
+                            chatFrag.SetFlagDisplay(3);
 
                         //chatFrag.conversationArrayAdapter.Add($"{chatFrag.connectedDeviceName}: {readMessage}");
                         break;
