@@ -36,6 +36,7 @@ namespace ColusClient
         WriteListener writeListener;
         public bool OnNavigationItemSelected(IMenuItem item)
         {
+            string[] title = new string[] {"마우스", "키보드", "PPT모드", "PC기능" };
             int tabIndex = -1;
             if (item.ItemId == Resource.Id.navigation_mouse) tabIndex = (0);
             else if (item.ItemId == Resource.Id.navigation_keyboard) tabIndex = (1);
@@ -43,6 +44,7 @@ namespace ColusClient
             else if (item.ItemId == Resource.Id.navigation_pcfunc) tabIndex = (3);
             if (tabIndex != -1)
             {
+                Title = title[tabIndex];
                 SetFlagDisplay(tabIndex);
                 return true;
             }
@@ -75,6 +77,7 @@ namespace ColusClient
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            Title = "마우스";
             SetContentView(Resource.Layout.activity_main);
             navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
@@ -113,7 +116,7 @@ namespace ColusClient
         public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.mainmenu, menu);
-            return true;
+            return base.OnCreateOptionsMenu(menu);
         }
         
         protected override void OnStart()
@@ -183,8 +186,8 @@ namespace ColusClient
                 case REQUEST_ENABLE_BT:
                     if (Result.Ok == resultCode)
                     {
-                        Toast.MakeText(this, Resource.String.bt_not_enabled_leaving, ToastLength.Short).Show();
-                        this.FinishAndRemoveTask();
+                        Toast.MakeText(this, "Bluetooth ON", ToastLength.Short).Show();
+                        //this.FinishAndRemoveTask();
                     }
                     break;
             }
@@ -271,17 +274,7 @@ namespace ColusClient
                 return true;
             }
         }
-        public override bool OnPrepareOptionsMenu(IMenu menu)
-        {
-            var menuItem = menu.FindItem(Resource.Id.discoverable);
-            if (menuItem != null)
-            {
-                menuItem.SetEnabled(bluetoothAdapter.ScanMode == ScanMode.ConnectableDiscoverable);
-                return true;
-            }
-            return false;
-
-        }
+        
         
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -289,10 +282,6 @@ namespace ColusClient
             bool result = true;
             if (item.ItemId == Resource.Id.secure_connect_scan)
                 PairWithBlueToothDevice(true);
-            else if (item.ItemId == Resource.Id.insecure_connect_scan)
-                PairWithBlueToothDevice(false);
-            else if (item.ItemId == Resource.Id.discoverable)
-                EnsureDiscoverable();
             else result = false;
             return result;
         }
@@ -322,15 +311,7 @@ namespace ColusClient
                 StartActivityForResult(intent, REQUEST_CONNECT_DEVICE_INSECURE);
             }
         }
-        void EnsureDiscoverable()
-        {
-            if (bluetoothAdapter.ScanMode != ScanMode.ConnectableDiscoverable)
-            {
-                var discoverableIntent = new Intent(BluetoothAdapter.ActionRequestDiscoverable);
-                discoverableIntent.PutExtra(BluetoothAdapter.ExtraDiscoverableDuration, 300);
-                StartActivity(discoverableIntent);
-            }
-        }
+        
 
     }
 }

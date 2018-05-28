@@ -29,6 +29,7 @@ namespace ColusClient
                         {
                             case BluetoothChatService.STATE_CONNECTED:
                                 chatFrag.SetStatus(chatFrag.GetString(Resource.String.title_connected_to, chatFrag.connectedDeviceName));
+                                
                                 //chatFrag.conversationArrayAdapter.Clear();
                                 break;
                             case BluetoothChatService.STATE_CONNECTING:
@@ -66,7 +67,13 @@ namespace ColusClient
                         chatFrag.connectedDeviceName = msg.Data.GetString(Constants.DEVICE_NAME);
                         if (chatFrag != null)
                         {
-                            Toast.MakeText(chatFrag, $"Connected to {chatFrag.connectedDeviceName}.", ToastLength.Short).Show();
+                            int tabIndex = 0;
+                            Toast.MakeText(chatFrag, $"Connected to {chatFrag.connectedDeviceName}. ", ToastLength.Short).Show();
+                                if (chatFrag.navigation.SelectedItemId == Resource.Id.navigation_mouse) tabIndex = (0);
+                                else if (chatFrag.navigation.SelectedItemId == Resource.Id.navigation_keyboard) tabIndex = (1);
+                                else if (chatFrag.navigation.SelectedItemId == Resource.Id.navigation_ppt) tabIndex = (2);
+                                else if (chatFrag.navigation.SelectedItemId == Resource.Id.navigation_pcfunc) tabIndex = (3);
+                            chatFrag.SetFlagDisplay(tabIndex);
                         }
                         break;
                     case Constants.MESSAGE_TOAST:

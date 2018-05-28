@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.Content;
 using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -53,7 +54,7 @@ namespace ColusClient
             int idx = 0;
             foreach (int numItem in numItemOfRows)
             {
-                int btHeightDp = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, 40, Activity.Resources.DisplayMetrics);
+                int btHeightDp = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, 45, Activity.Resources.DisplayMetrics);
                 LinearLayout rowLinearLayout = new LinearLayout(this.Activity);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent, 1f);
                 layoutParams.Gravity = GravityFlags.Center;
@@ -70,13 +71,13 @@ namespace ColusClient
                     
                     Button btKey = new Button(this.Activity);
                     LinearLayout.LayoutParams btParams = new LinearLayout.LayoutParams(0, btHeightDp, weight);
-                    btParams.SetMargins(0,0,0,0);
+                    btParams.SetMargins(1,1,1,1);
                     btParams.Gravity = GravityFlags.Top;
                     btKey.LayoutParameters = btParams;
-                    btKey.TextSize = TypedValue.ApplyDimension(ComplexUnitType.Sp, 4, Activity.Resources.DisplayMetrics);
-                    btKey.Text = keyName;
-                    btKey.SetTextColor(Color.LightGray);
-                    btKey.SetBackgroundResource(Resource.Drawable.key_button);
+                    btKey.TextSize = TypedValue.ApplyDimension(ComplexUnitType.Sp, 3.8f, Activity.Resources.DisplayMetrics);
+                    btKey.Text = keyName; 
+                    btKey.SetTextColor(new Color(ContextCompat.GetColor(Activity, Resource.Color.md_white_1000)));
+                    btKey.SetBackgroundResource(Resource.Drawable.button_bootstrap_rounded_theme);
                     btKey.Click += ((sender, e) => KeyClick(sender as Button, keyCode));
                     rowLinearLayout.AddView(btKey);
                     idx++;
@@ -92,12 +93,12 @@ namespace ColusClient
             {
                 if (isMultiOn)
                 {
-                    bt.SetTextColor(Color.LightGray);
+                    bt.SetBackgroundResource(Resource.Drawable.button_bootstrap_rounded_theme);
                     isMultiOn = false;
                 }
                 else
                 {
-                    bt.SetTextColor(Color.LightYellow);
+                    bt.SetBackgroundResource(Resource.Drawable.button_material_rounded_teal);
                     isMultiOn = true;
                 }
             }
@@ -109,7 +110,7 @@ namespace ColusClient
             keyMapList = new List<KeyMap>();
             numItemOfRows = new int[] { 5, 10, 10, 10, 10, 10, 10, 10, 8};
             //4개 좌상하우
-            keyMapList.AddRange(new KeyMap[] { new KeyMap("Multi\nKey", 0xff),
+            keyMapList.AddRange(new KeyMap[] { new KeyMap("Multi", 0xff),
                 new KeyMap("←", 0x25), new KeyMap("↑", 0x26), new KeyMap("↓", 0x28), new KeyMap("→", 0x27)});
             //10개 ESC, INSERT , DEL, HOME, END, pageup pagedown, PRINTScr, F11, F12
             keyMapList.AddRange(new KeyMap[] { new KeyMap("Esc",0x1B), new KeyMap("Ins", 0x2D), new KeyMap("Del", 0x2E),
@@ -136,9 +137,9 @@ namespace ColusClient
                 new KeyMap("D\nㅇ", 0x44), new KeyMap("F\nㄹ", 0x46), new KeyMap("G\nㅎ", 0x47), new KeyMap("H\nㅗ", 0x48),
                 new KeyMap("J\nㅓ", 0x4A), new KeyMap("K\nㅏ", 0x4B), new KeyMap("L\nㅣ", 0x4C) });
             //10개 Shift, z, x, c, v, b, n, m, ?,  backSpace 
-            keyMapList.AddRange(new KeyMap[] { new KeyMap("Shift",0x10), new KeyMap("Z\nㅋ", 0x5A), new KeyMap("X\nㅌ", 0x58),
+            keyMapList.AddRange(new KeyMap[] { new KeyMap("Shift\n↑",0x10), new KeyMap("Z\nㅋ", 0x5A), new KeyMap("X\nㅌ", 0x58),
                 new KeyMap("C\nㅊ", 0x43), new KeyMap("V\nㅍ", 0x56), new KeyMap("B\nㅠ", 0x42), new KeyMap("N\nㅜ", 0x4E),
-                new KeyMap("M\nㅡ", 0x4D) , new KeyMap("?\n/", 0xBF) , new KeyMap("←", 0x08)});
+                new KeyMap("M\nㅡ", 0x4D) , new KeyMap("?\n/", 0xBF) , new KeyMap("Back\n←", 0x08)});
             //8개 tab, Ctrl, Window, Alt, Space, Hangul, Hanja,  Enter
             keyMapList.AddRange(new KeyMap[] { new KeyMap("Tab",0x09),  new KeyMap("Ctrl",0x11), new KeyMap("Win", 0x5B),
                 new KeyMap("Alt",0x12), new KeyMap("Space", 0x20, 2.5f),
