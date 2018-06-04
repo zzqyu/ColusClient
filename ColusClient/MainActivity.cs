@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Bluetooth;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -12,7 +13,7 @@ using System.Text;
 
 namespace ColusClient
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public partial class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         public BottomNavigationView navigation;
@@ -188,6 +189,8 @@ namespace ColusClient
                     {
                         Toast.MakeText(this, "Bluetooth ON", ToastLength.Short).Show();
                         //this.FinishAndRemoveTask();
+                        Finish();
+                        StartActivity(new Intent(this, this.GetType()));
                     }
                     break;
             }

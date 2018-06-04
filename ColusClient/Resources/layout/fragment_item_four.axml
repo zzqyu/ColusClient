@@ -17,7 +17,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_material_rounded_teal"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
         <Button
             android:id="@+id/desktopRunBoxBtn"
@@ -26,7 +26,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_material_rounded_teal"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
     </LinearLayout>
     <LinearLayout
@@ -41,7 +41,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_material_rounded_indigo"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
         <Button
             android:id="@+id/formMaximizeBtn"
@@ -50,7 +50,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_material_rounded_indigo"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
     </LinearLayout>
     <LinearLayout
@@ -65,7 +65,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_bootstrap_rounded_primary"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
         <Button
             android:id="@+id/searchFileBtn"
@@ -74,7 +74,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
-            android:background="@drawable/button_bootstrap_rounded_primary"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000" />
     </LinearLayout>
 </LinearLayout>

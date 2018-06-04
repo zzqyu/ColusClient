@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:background="@drawable/button_bootstrap_rounded_primary"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000"
             android:id="@+id/endBtn"
             android:layout_width="1dp"
@@ -42,7 +42,7 @@
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
             android:text="End" />
         <Button
-            android:background="@drawable/button_material_rounded_teal"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000"
             android:id="@+id/escBtn"
             android:layout_width="1dp"
@@ -51,7 +51,7 @@
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
             android:text="ESC" />
         <Button
-            android:background="@drawable/button_bootstrap_rounded_primary"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000"
             android:id="@+id/homeBtn"
             android:layout_width="1dp"
@@ -65,7 +65,7 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal">
         <Button
-            android:background="@drawable/button_material_rounded_indigo"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000"
             android:textSize="30sp"
             android:id="@+id/prevBtn"
@@ -75,7 +75,7 @@
             android:layout_margin="@dimen/abc_button_padding_vertical_material"
             android:text="←" />
         <Button
-            android:background="@drawable/button_material_rounded_indigo"
+            android:background="@drawable/button_bootstrap_rounded_theme"
             android:textColor="@color/md_white_1000"
             android:textSize="30sp"
             android:id="@+id/nextBtn"
