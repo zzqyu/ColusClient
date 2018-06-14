@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout">
+<!--
+  음소거0xAD, 볼륨감소0xAE, 볼륨증가0xAF
+  이전트랙0xB1, 정지0xB2, 다음트랙0xB0
+  뒤로이동0x25, 재생/일시정지0xFA/0xB3 or 0x20, 앞으로이동0x27
+  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bnt0"
+            android:text="음소거"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:drawableTop="@drawable/ic_mute"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="10dp"
+            android:textColor="@color/md_white_1000" />
+        <Button
+            android:id="@+id/bnt1"
+            android:text="볼륨감소"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:drawableTop="@drawable/ic_vol_down"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="10dp"
+            android:textColor="@color/md_white_1000" />
+        <Button
+            android:id="@+id/bnt2"
+            android:text="볼륨증가"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:drawableTop="@drawable/ic_vol_up"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="10dp"
+            android:textColor="@color/md_white_1000" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bnt3"
+            android:text="뒤로"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:drawableTop="@drawable/ic_pre"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:textColor="@color/md_white_1000" />
+        <Button
+            android:id="@+id/bnt4"
+            android:text="재생 일시정지"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:drawableTop="@drawable/ic_play"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:textColor="@color/md_white_1000" />
+        <Button
+            android:id="@+id/bnt5"
+            android:text="앞으로"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/abc_button_padding_vertical_material"
+            android:drawableTop="@drawable/ic_next"
+            android:background="@drawable/button_bootstrap_rounded_theme"
+            android:textColor="@color/md_white_1000" />
+    </LinearLayout>
+</LinearLayout>
